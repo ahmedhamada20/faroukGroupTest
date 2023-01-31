@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdsController;
+use App\Http\Controllers\Admin\AnswerQuestionsTypeCheckbox;
 use App\Http\Controllers\Admin\BestSellerController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -22,12 +23,14 @@ use App\Http\Controllers\Admin\PageSurveyController;
 use App\Http\Controllers\Admin\PreviousWorkController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\QuestionsPageController;
 use App\Http\Controllers\Admin\RequestTicksController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ZoomController;
+use App\Http\Controllers\Front\HomeController as FrontHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -193,5 +196,13 @@ Route::middleware(['auth', 'checkInformation'])->group(function () {
      Route::resource('requestTicks',RequestTicksController::class);
 
     Route::resource('pagesSurvey', PageSurveyController::class);
+    Route::resource('questionsPage', QuestionsPageController::class);
+    Route::resource('answerQuestionsTypeCheckbox', AnswerQuestionsTypeCheckbox::class);
 
 });
+
+
+
+
+Route::get('{page}', [FrontHomeController::class, 'show_survey'])->name('show_page_survey');
+Route::post('storeSurvey', [FrontHomeController::class, 'storeSurvey'])->name('storeSurvey');

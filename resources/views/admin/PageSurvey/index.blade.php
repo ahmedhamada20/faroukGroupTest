@@ -64,6 +64,8 @@
                                         data-target="#editpagesSurvey{{ $row->id }}"><i class="fa fa-edit"></i></button>
                                     <button class="btn btn-danger btn-sm"  data-toggle="modal"
                                     data-target="#deletedpagesSurvey{{ $row->id }}"> <i class="fa fa-trash"></i></button>
+
+                                    <a href="{{ route('questionsPage.show',$row->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                 </td>
 
                                 @include('admin.PageSurvey.edit')

@@ -11,6 +11,7 @@ use App\Models\Customer;
 use App\Models\NumberBlog;
 use App\Models\NumberService;
 use App\Models\Packages;
+use App\Models\PageSurvey;
 use App\Models\RequestSercice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,9 +26,40 @@ class HomeController extends Controller
 
         // SitemapGenerator::create('https://faroukgroup.com/')->writeToFile('public');
 
-//        SitemapGenerator::create('https://faroukgroup.com/')->getSitemap()->writeToDisk('public', 'sitemap.xml');
+        //        SitemapGenerator::create('https://faroukgroup.com/')->getSitemap()->writeToDisk('public', 'sitemap.xml');
         return view('front.index');
     }
+
+
+    public function show_survey($id)
+    {
+        $pages = PageSurvey::where('name', $id)->first();
+        if (!$pages) {
+            abort(404);
+        } else {
+
+            return view('front.servrey.index', compact('pages'));
+        }
+    }
+
+
+
+    public function storeSurvey(Request $request)
+    {
+        dd($request->all());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function servery1()
@@ -100,16 +132,15 @@ class HomeController extends Controller
             'server_26' => $request->server_26,
             'server_27' => $request->server_27,
             'name' => $request->name,
-            'created_at' =>date('Y-m-d'),
+            'created_at' => date('Y-m-d'),
         ]);
 
         return redirect()->back()->with(['success' => 'شكرا  ']);
-
     }
 
     public function servery1_needs_post(Request $request)
     {
-//dd($request->all());
+        //dd($request->all());
 
         DB::table('servieus_hepas')->insert([
             'name' => $request->name ?? null,
@@ -130,17 +161,16 @@ class HomeController extends Controller
             'server_2' => $request->server_2 ?? null,
             'server_3' => $request->server_3 ?? null,
             'name_3' => $request->name_3 ?? null,
-            'created_at' =>date('Y-m-d'),
+            'created_at' => date('Y-m-d'),
 
         ]);
 
 
         return redirect()->back()->with(['success' => 'شكرا  ']);
-
     }
     public function surveyaftersalePost(Request $request)
     {
-//dd($request->all());
+        //dd($request->all());
 
         DB::table('after_sales')->insert([
             'name' => $request->name,
@@ -159,13 +189,12 @@ class HomeController extends Controller
             'name_5' => $request->name_5,
             'server_5' => $request->server_5,
             'answer_server_5' => $request->answer_server_5,
-            'created_at' =>date('Y-m-d'),
+            'created_at' => date('Y-m-d'),
 
         ]);
 
 
         return redirect()->back()->with(['success' => 'شكرا  ']);
-
     }
 
 
@@ -221,13 +250,10 @@ class HomeController extends Controller
 
             DB::commit();
             return redirect()->route('home')->with(['success' => __('index.sendsuccessfullyMessage')]);
-
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => 'يوجد بيانات مسجلة من قبل ، برجاء ادخال بيانات جديدة ']);
         }
-
-
     }
 
 
@@ -546,7 +572,7 @@ class HomeController extends Controller
 
     public function sendJop(Request $request)
     {
-//        dd($request->all());
+        //        dd($request->all());
         $request->validate([
             'name' => 'required|min:2|max:200',
             'email' => 'required|email|min:2|max:255',

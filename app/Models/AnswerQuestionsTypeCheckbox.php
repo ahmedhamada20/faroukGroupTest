@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PageSurvey extends Model
+class AnswerQuestionsTypeCheckbox extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
-        'notes',
+        'questions_page_id',
     ];
 
-    public function questionsPage()
+
+    public function questions_page()
     {
-        return $this->hasMany(QuestionsPage::class, 'page_survey_id');
+        return $this->belongsTo(QuestionsPage::class, 'questions_page_id');
     }
-
-
 }
