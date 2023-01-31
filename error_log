@@ -1,0 +1,16 @@
+[31-Jan-2023 09:16:22 UTC] PHP Warning:  require(/home/politicalconsolt/public_html/farouk/vendor/autoload.php): Failed to open stream: No such file or directory in /home/politicalconsolt/public_html/farouk/artisan on line 18
+[31-Jan-2023 09:16:22 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/politicalconsolt/public_html/farouk/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/politicalconsolt/public_html/farouk/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/politicalconsolt/public_html/farouk/artisan on line 18
+[31-Jan-2023 09:17:04 UTC] PHP Warning:  require(/home/politicalconsolt/public_html/farouk/vendor/autoload.php): Failed to open stream: No such file or directory in /home/politicalconsolt/public_html/farouk/artisan on line 18
+[31-Jan-2023 09:17:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/politicalconsolt/public_html/farouk/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/politicalconsolt/public_html/farouk/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/politicalconsolt/public_html/farouk/artisan on line 18
+[31-Jan-2023 09:20:34 UTC] PHP Warning:  require(/home/politicalconsolt/public_html/farouk/vendor/autoload.php): Failed to open stream: No such file or directory in /home/politicalconsolt/public_html/farouk/artisan on line 18
+[31-Jan-2023 09:20:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/politicalconsolt/public_html/farouk/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home/politicalconsolt/public_html/farouk/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/politicalconsolt/public_html/farouk/artisan on line 18
+[31-Jan-2023 09:21:26 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.27. in /home/politicalconsolt/public_html/farouk/vendor/composer/platform_check.php on line 24
