@@ -97,6 +97,7 @@
                             <li><a class="slide-item" href="{{ route('affterSalrees') }}">استبيان رضا العملاء </a></li>
                             <li><a class="slide-item" href="{{ route('affterSalreesHepa') }}">استقصاء تطوير المواقع</a></li>
                             <li><a class="slide-item" href="{{ route('affterSalreesHepaSSSS') }}">استقصاء تحديد اتجاهات</a></li>
+                            <li><a class="slide-item" href="{{ route('pagesSurvey.index') }}">انشاء استقصاء جديد </a></li>
                         </ul>
                     </li>
 

@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NumberController;
 use App\Http\Controllers\Admin\PackagesController;
+use App\Http\Controllers\Admin\PageSurveyController;
 use App\Http\Controllers\Admin\PreviousWorkController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\QuestionController;
@@ -190,5 +191,7 @@ Route::middleware(['auth', 'checkInformation'])->group(function () {
      Route::post('question_photo_remove_image', [QuestionController::class, 'question_photo_remove_image'])->name('question_photo_remove_image');
 
      Route::resource('requestTicks',RequestTicksController::class);
+
+    Route::resource('pagesSurvey', PageSurveyController::class);
 
 });
