@@ -17,7 +17,7 @@ class CreateAnswerQuestionsTable extends Migration
             $table->id();
             $table->foreignId('page_survey_id')->nullable()->constrained('page_surveys')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('questions_page_id')->nullable()->constrained('questions_pages')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('answer_questions_type_checkboxe_id')->nullable()->constrained('answer_questions_type_checkboxes')->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreignId('answer_questions_type_checkboxe_id')->nullable()->constrained('answer_questions_type_checkboxes')->cascadeOnDelete()->cascadeOnUpdate();
             $table->longText('answer')->nullable();
             $table->longText('name')->nullable();
             $table->timestamps();

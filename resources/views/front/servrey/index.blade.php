@@ -65,17 +65,26 @@
                         <br>
 
                         @foreach ($pages->questionsPage as $data )
-                        <input type="hidden" value="{{ $data->id }}" name="questions_page_id">
+                        <input type="hidden" value="{{ $data->id }}" name="questions_page_id[]">
                         @if ($data->type == 'text')
                         <label class="mb-1">{{ $data->name }}</label>
-                        <input type="hidden" class="form-control" name="{{ $data->id }}" >
+                        {{-- <input type="hidden" class="form-control" name="{{ $data->id }}" > --}}
                         <input type="text" class="form-control" required name="answer[]" >
                         <br>
+
+
+
+
+
                         @elseif ($data->type == 'textarea')
                         <label class="mb-1">{{ $data->name }}</label>
-                        <input type="hidden" class="form-control" name="{{ $data->id }}" >
                         <textarea class="form-control" required name="answer[]" rows="5"></textarea>
                        <br>
+
+
+
+
+
                         @else
 
 
@@ -86,14 +95,10 @@
                             </div>
                          
                             @foreach ($data->answerTypeCheckbox as $types)
-                            <input type="hidden" value="{{ $types->id }}" name="answer_questions_type_checkboxe_id">
-
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="radio" name="answer[]-{{ $types->id }}" id="exampleRadios1_{{ $types->id }}" value="{{ $types->name }}" required>
-                                <label class="form-check-label" for="exampleRadios1_{{ $types->id }}">
-                                  {{ $types->name }}
-                                </label>
-                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input"  type="radio" name="answer[{{$types->id}}]" value="{{$types->name}}" id="flexRadioDefault1[{{$types->id}}]"/>
+                                <label class="form-check-label" for="flexRadioDefault1[{{$types->id}}]"> {{$types->name}} </label>
+                            </div>
                          
                             @endforeach
                             
