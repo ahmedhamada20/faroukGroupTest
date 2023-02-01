@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\AnswerQuestions;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Contact;
@@ -46,7 +47,16 @@ class HomeController extends Controller
 
     public function storeSurvey(Request $request)
     {
-        dd($request->all());
+
+
+      AnswerQuestions::create([
+            'page_survey_id' => $request->page_survey_id,
+            'questions_page_id' => implode(',',$request->questions_page_id),
+          
+            'answer' => implode(',',$request->answer),
+            'name' => $request->name,
+        ]);
+        return redirect()->back()->with(['success' => 'شكرا لتسجيل ']);
     }
 
 

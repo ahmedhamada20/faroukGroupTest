@@ -16,7 +16,7 @@ class CreateAnswerQuestionsTable extends Migration
         Schema::create('answer_questions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('page_survey_id')->nullable()->constrained('page_surveys')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('questions_page_id')->nullable()->constrained('questions_pages')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->longText('questions_page_id')->nullable();
             // $table->foreignId('answer_questions_type_checkboxe_id')->nullable()->constrained('answer_questions_type_checkboxes')->cascadeOnDelete()->cascadeOnUpdate();
             $table->longText('answer')->nullable();
             $table->longText('name')->nullable();

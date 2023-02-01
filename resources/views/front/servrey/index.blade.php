@@ -65,7 +65,7 @@
                         <br>
 
                         @foreach ($pages->questionsPage as $data )
-                        <input type="hidden" value="{{ $data->id }}" name="questions_page_id[]">
+                        <input type="hidden" value="{{ $data->name }}" name="questions_page_id[]">
                         @if ($data->type == 'text')
                         <label class="mb-1">{{ $data->name }}</label>
                         {{-- <input type="hidden" class="form-control" name="{{ $data->id }}" > --}}
