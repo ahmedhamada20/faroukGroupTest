@@ -198,7 +198,7 @@ Route::middleware(['auth', 'checkInformation'])->group(function () {
     Route::resource('pagesSurvey', PageSurveyController::class);
     Route::resource('questionsPage', QuestionsPageController::class);
     Route::resource('answerQuestionsTypeCheckbox', AnswerQuestionsTypeCheckbox::class);
-
+    Route::get('getallDowloadSurvey/{id}', [PageSurveyController::class, 'getallDowloadSurvey'])->name('getallDowloadSurvey');
 });
 
 

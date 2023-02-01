@@ -15,6 +15,8 @@ class AnswerQuestions extends Model
         // 'answer_questions_type_checkboxe_id',
         'answer',
         'name',
+        'email',
+        'phone',
     ];
 
 

@@ -56,9 +56,26 @@
 
                         <div class="row">
                             <div class="col">
-                                <label class="mb-1 h6"> الاسم </label>
+                                <label class="mb-1 h6" > الاسم </label>
 
                                 <input type="text" name="name" required class="form-control">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <label class="mb-1 h6"> رقم الهاتف </label>
+
+                                <input type="number" name="phone" required class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <label class="mb-1 h6"> البريد الالكتروني </label>
+
+                                <input type="email" name="email" class="form-control">
                             </div>
                         </div>
 

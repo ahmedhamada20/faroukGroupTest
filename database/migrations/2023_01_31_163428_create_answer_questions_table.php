@@ -20,6 +20,8 @@ class CreateAnswerQuestionsTable extends Migration
             // $table->foreignId('answer_questions_type_checkboxe_id')->nullable()->constrained('answer_questions_type_checkboxes')->cascadeOnDelete()->cascadeOnUpdate();
             $table->longText('answer')->nullable();
             $table->longText('name')->nullable();
+            $table->longText('email')->nullable();
+            $table->longText('phone')->nullable();
             $table->timestamps();
         });
     }

@@ -49,6 +49,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>name</th>
+                                <th>Count</th>
                                 <th>Action</th>
 
                             </tr>
@@ -59,7 +60,9 @@
                             <tr>
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$row->name}}</td>
+                                <td>{{$row->totalCount()}}</td>
                                 <td>
+                                    <a href="{{ route('getallDowloadSurvey',$row->id) }}" class="btn btn-info btn-sm"><i class="fa fa-download"></i></a>
                                     <button class="btn btn-success btn-sm" data-toggle="modal"
                                         data-target="#editpagesSurvey{{ $row->id }}"><i class="fa fa-edit"></i></button>
                                     <button class="btn btn-danger btn-sm"  data-toggle="modal"

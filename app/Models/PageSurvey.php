@@ -19,4 +19,10 @@ class PageSurvey extends Model
     }
 
 
+    public function totalCount()
+    {
+       return AnswerQuestions::where('page_survey_id', $this->id)->count();
+    }
+
+
 }

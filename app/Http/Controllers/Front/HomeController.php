@@ -49,12 +49,13 @@ class HomeController extends Controller
     {
 
 
-      AnswerQuestions::create([
-            'page_survey_id' => $request->page_survey_id,
-            'questions_page_id' => implode(',',$request->questions_page_id),
-          
-            'answer' => implode(',',$request->answer),
-            'name' => $request->name,
+        AnswerQuestions::create([
+            'page_survey_id' => $request->page_survey_id ?? null,
+            'questions_page_id' => implode(',', $request->questions_page_id) ?? null,
+            'answer' => implode(',', $request->answer) ?? null,
+            'name' => $request->name ?? null,
+            'email' => $request->email ?? null,
+            'phone' => $request->phone ?? null,
         ]);
         return redirect()->back()->with(['success' => 'شكرا لتسجيل ']);
     }

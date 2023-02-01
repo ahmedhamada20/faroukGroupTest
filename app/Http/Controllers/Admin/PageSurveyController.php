@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\getallDowloadSurvey;
 use App\Http\Controllers\Controller;
 use App\Models\PageSurvey;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PageSurveyController extends Controller
 {
@@ -82,5 +84,10 @@ class PageSurveyController extends Controller
         PageSurvey::destroy($request->id);
         toastr()->success('تم الحذف الاستقصاء بنجاح');
         return redirect('pagesSurvey');
+    }
+
+    public function getallDowloadSurvey($id)
+    {
+        return Excel::download(new getallDowloadSurvey($id), 'ContactExport.xlsx');
     }
 }
