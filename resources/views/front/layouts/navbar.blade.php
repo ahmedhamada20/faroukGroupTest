@@ -56,7 +56,7 @@
                             <ul class="dropdown-menu">
                                 @foreach(App\Models\Category::where('status',true)->limit(4)->get() as $row)
                                     <li class="nav-item">
-                                        <a href="{{route('home.servicesDetails', preg_replace('/\s+/', '-',  $row->name))}}"
+                                        <a href="{{route('home.servicesDetails',[ preg_replace('/\s+/', '-',  $row->name),$row->id])}}"
                                            class="nav-link ">
                                             {{$row->name}}
                                         </a>
@@ -74,7 +74,7 @@
                             <ul class="dropdown-menu">
                                 @foreach(App\Models\Category::where('status',true)->skip(4)->limit(3)->get() as $row)
                                     <li class="nav-item">
-                                        <a href="{{route('home.servicesDetails', preg_replace('/\s+/', '-',  $row->name))}}"
+                                        <a href="{{route('home.servicesDetails',[ preg_replace('/\s+/', '-',  $row->name),$row->id])}}"
                                            class="nav-link">
                                             {{$row->name}}
                                         </a>

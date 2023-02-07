@@ -71,13 +71,13 @@
                             @foreach(App\Models\Blog::where('status',true)->get() as $blogs)
 
                             <article class="item">
-                                <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blogs->name))}}" class="thumb">
+                                <a href="{{route('home.blogDetails', [preg_replace('/\s+/', '-',  $blogs->name),$blogs->id])}}" class="thumb">
                                     <img src="{{asset($blogs->image)}}" width="100px" height="100px" alt="">
 {{--                                    <span class="fullimage cover" style="background-image: url()" role="img"></span>--}}
                                 </a>
                                 <div class="info">
                                     <span>{{$blogs->create_at}}</span>
-                                    <h4 class="title usmall"><a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blogs->name))}}">{{$blogs->name}}</a></h4>
+                                    <h4 class="title usmall"><a href="{{route('home.blogDetails', [preg_replace('/\s+/', '-',  $blogs->name),$blogs->id])}}">{{$blogs->name}}</a></h4>
                                 </div>
                             </article>
                             @endforeach
@@ -89,7 +89,7 @@
 
                             <ul>
                                 @forelse (categoryActive() as $category)
-                                <li><a href="{{route('home.servicesDetails', preg_replace('/\s+/', '-',  $category->name))}}">{{$category->name}}</a></li>
+                                <li><a href="{{route('home.servicesDetails', [preg_replace('/\s+/', '-',  $category->name), $category->id])}}">{{$category->name}}</a></li>
 
                                 @empty
 

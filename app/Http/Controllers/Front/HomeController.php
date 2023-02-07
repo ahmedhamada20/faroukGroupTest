@@ -284,10 +284,10 @@ class HomeController extends Controller
         return view('front.subscriptions.index', $data);
     }
 
-    public function blogDetails($name)
+    public function blogDetails($name,$id)
     {
 
-        $the_company = Blog::where('name->' . app()->getLocale(), str_replace('-', ' ', $name))->first();
+        $the_company = Blog::findorfail($id);
         if (NumberBlog::where('blog_id', $the_company->id)->first()) {
             $blog = NumberBlog::where('blog_id', $the_company->id)->first();
             $blog->number = $blog->number + 1;
@@ -328,11 +328,11 @@ class HomeController extends Controller
         return view('front.services.index');
     }
 
-    public function servicesDetails($id)
+    public function servicesDetails($name , $id)
     {
+      
 
-
-        $the_company = Category::where('name->' . app()->getLocale(), str_replace('-', ' ', $id))->first();
+        $the_company = Category::findorfail($id);
 
         // dd($the_company);
         if (NumberService::where('category_id', $the_company->id)->first()) {
@@ -345,7 +345,11 @@ class HomeController extends Controller
                 'number' => 1,
             ]);
         }
-        $data = Course::where('category_id', $the_company->id)->first();
+        $data = Course::where('category_id', $the_company->id, function ($data, $name) {
+            $data->orwhere('name->' . app()->getLocale(), str_replace('-', ' ', $name))->first();
+           
+        })->first();
+
         return view('front.services.details', compact('data'));
     }
 

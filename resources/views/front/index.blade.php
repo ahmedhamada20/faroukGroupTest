@@ -474,12 +474,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -559,14 +553,14 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-services-item">
                             <div class="image">
-                                <a href="{{route('home.servicesDetails', preg_replace('/\s+/', '-',  $category->name))}}">
+                                <a href="{{route('home.servicesDetails', [preg_replace('/\s+/', '-',  $category->name),$category->id])}}">
                                     <img src="{{asset($category->image ?? 'front/assets/img/services/services-7.jpg')}}"
                                          width="403px" height="310px" alt="image" style="height: 350px">
                                 </a>
                             </div>
                             <div class="content">
                                 <h3>
-                                    <a href="{{route('home.servicesDetails', preg_replace('/\s+/', '-',  $category->name))}}">{{ $category->name }}</a>
+                                    <a href="{{route('home.servicesDetails', [preg_replace('/\s+/', '-',  $category->name),$category->id])}}">{{ $category->name }}</a>
                                 </h3>
                                 <span>{!! $category->notes !!}</span>
                             </div>
@@ -946,7 +940,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog">
                             <div class="image">
-                                <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blog->name))}}">
+                                <a href="{{route('home.blogDetails',[ preg_replace('/\s+/', '-',  $blog->name),$blog->id])}}">
                                     <img src="{{asset($blog->image ?? 'front/assets/img/blog/blog-1.jpg')}}"
                                          width="403px" height="310px" alt="image">
                                 </a>
@@ -956,9 +950,9 @@
                                 {{$blog->created_at->format('Y-m-d')}}
                             </span>
                                 <h3>
-                                    <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blog->name))}}">{{Str::limit($blog->name,28)}}</a>
+                                    <a href="{{route('home.blogDetails',[ preg_replace('/\s+/', '-',  $blog->name),$blog->id])}}">{{Str::limit($blog->name,28)}}</a>
                                 </h3>
-                                <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blog->name))}}" class="blog-btn">{{__('index.read_more')}} <i
+                                <a href="{{route('home.blogDetails',[ preg_replace('/\s+/', '-',  $blog->name),$blog->id])}}" class="blog-btn">{{__('index.read_more')}} <i
                                         class='bx bx-chevrons-right'></i></a>
                             </div>
                         </div>

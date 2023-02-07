@@ -75,7 +75,7 @@
                     <ul class="quick-links">
                         @foreach(App\Models\Category::whereStatus(true)->get() as $category)
                         <li>
-                            <a href="{{route('home.servicesDetails', preg_replace('/\s+/', '-',  $category->name))}}">{{$category->name}}</a>
+                            <a href="{{route('home.servicesDetails',[ preg_replace('/\s+/', '-',  $category->name),$category->id])}}">{{$category->name}}</a>
                         </li>
                         @endforeach
 

@@ -36,7 +36,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog">
                             <div class="image">
-                                <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blog->name))}}">
+                                <a href="{{route('home.blogDetails', [preg_replace('/\s+/', '-',  $blog->name),$blog->id])}}">
                                     <img src="{{asset($blog->image ?? 'front/assets/img/blog/blog-1.jpg')}}"
                                          width="403px" height="310px" alt="image">
                                 </a>
@@ -47,9 +47,9 @@
                             </span>
 
                                 <h3>
-                                    <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blog->name))}}">{{Str::limit($blog->name, 28)}}</a>
+                                    <a href="{{route('home.blogDetails', [preg_replace('/\s+/', '-',  $blog->name),$blog->id])}}">{{Str::limit($blog->name, 28)}}</a>
                                 </h3>
-                                <a href="{{route('home.blogDetails', preg_replace('/\s+/', '-',  $blog->name))}}" class="blog-btn">{{__('index.read_more')}} <i
+                                <a href="{{route('home.blogDetails', [preg_replace('/\s+/', '-',  $blog->name),$blog->id])}}" class="blog-btn">{{__('index.read_more')}} <i
                                         class='bx bx-chevrons-right'></i></a>
                             </div>
                         </div>

@@ -67,10 +67,10 @@ Route::group(
     Route::get('/Consulting', [HomeController::class, 'consulting'])->name('home.consulting');
     Route::get('/contactUs', [HomeController::class, 'contactUs'])->name('home.contactUs');
     Route::get('/services', [HomeController::class, 'services'])->name('home.services');
-     Route::get(LaravelLocalization::transRoute('/servicesDetails/{id}'), [HomeController::class, 'servicesDetails'])->name('home.servicesDetails');
+    Route::get('/servicesDetails/{name}/{id}', [HomeController::class, 'servicesDetails'])->name('home.servicesDetails');
     Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
     Route::get('/Agency', [HomeController::class, 'Agency'])->name('home.Agency');
-    Route::get('/blogDetails/{name}', [HomeController::class, 'blogDetails'])->name('home.blogDetails');
+    Route::get('/blogDetails/{name}/{id}', [HomeController::class, 'blogDetails'])->name('home.blogDetails');
 
 
 
